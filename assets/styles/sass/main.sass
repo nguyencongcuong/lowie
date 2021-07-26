@@ -75,14 +75,18 @@ ul
     list-style-type: none
 // Main Styles
 body
-    background: $secondaryColor     
+    background: $secondaryColor
+    padding: $space1
     main
-        display: grid
-        grid-template-columns: 1rem 1fr 1rem
-        @media screen and ( min-width: $breakpointMd )
-            grid-template-columns: 30% 1fr 30%
-        .sound-cards           
-            &:nth-child(1)
+        .sound-card
+            display: grid
+            grid-template-columns: 1rem 1fr 1rem
+            @media screen and ( min-width: $breakpointMd )
+                grid-template-columns: 30% 1fr 30%            
+            &__header
+                grid-column: 2 / 3
+                grid-row: 1 / 2               
+            &__body
                 grid-column: 2 / 3
                 grid-row: 2 / 3
                 display: flex
@@ -98,39 +102,47 @@ body
                         margin-right: 0
                     .sound__image
                         padding: 2rem
+        .music-card
+            display: flex
+            flex-flow: column wrap
+            &__header
+            &__body
+                display: flex
+                flex-flow: column wrap
+                .music
+                    @include rounded()
+                    padding: $space2
+                    margin-bottom: $space1
+                    cursor: pointer
+                .music--enabled
+                    background: $accentColor
+                    transition: all 0.5s ease-in-out 0s
+                .music--disabled
+                    background: #d1d4cf
+                    transition: all 0.5s ease-in-out 0s                      
 
-            &:nth-child(2)
-                grid-column: 2 / 3
-                grid-row: 3 / 4
+
+.sound-card,
+.music-card
+    &__header
+        font-size: 1.5rem
+        text-align: center
+        margin-bottom: $space2
+    &__body
+        .sound
+            opacity: 0.8
+            cursor: pointer        
+            > div    
                 display: flex
                 flex-flow: row wrap
-                .sound
-                    @include ratio(1,1)
-                    @include rounded()
-                    width: 23.5%
-                    padding: 2rem
-                    margin-bottom: 2%
-                    margin-right: 2%
-                    &:nth-child(4n + 4)
-                        margin-right: 0
-                    .sound__image
-                        padding: 2rem                        
-
-.sound-cards
-    .sound
-        opacity: 0.8
-        cursor: pointer        
-        > div    
-            display: flex
-            flex-flow: row wrap
-            justify-content: center
-            align-items: center
-    .sound--enabled
-        background: $accentColor
-        transition: all 0.5s ease-in-out 0s
-    .sound--disabled
-        background: #d1d4cf
-        transition: all 0.5s ease-in-out 0s             
+                justify-content: center
+                align-items: center
+        .sound--enabled
+            background: $accentColor
+            transition: all 0.5s ease-in-out 0s
+        .sound--disabled
+            background: #d1d4cf
+            transition: all 0.5s ease-in-out 0s             
 
 
 .main-header

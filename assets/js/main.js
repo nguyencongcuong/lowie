@@ -79,32 +79,43 @@ const sounds = [
         imageURL: "./assets/images/campfire.png"
     }
 ]
-const backgroundAudio = [
+const music = [
     {
         id: "001",
-        name: "meditation_music_03",
-        audioURL: "./assets/background-audios/meditation_music_03.mp3",
+        name: "Nhạc nền",
+        audioURL: "./assets/music/meditation_music_03.mp3",
         imageURL: "./assets/images/lotus.png"
-    }
+    },
+    {
+        id: "00dds1",
+        name: "Nhạc nền 2",
+        audioURL: "./assets/music/meditation_music_03.mp3",
+        imageURL: "./assets/images/lotus.png"
+    }    
 ]
 
 // Process
-createSoundCards("soundCards");
-sounds.map(element => addSound(element.id, "soundCards", sounds));
-createSoundCards("backgroundAudioCards");
-backgroundAudio.map(element => addSound(element.id, "backgroundAudioCards", backgroundAudio));
+createCards("soundCards", "sound-card", "Âm thanh");
+sounds.map(element => addSound(element.id, "soundCardsBody", sounds));
+
+createCards("musicCards", "music-card", "Nhạc nền");
+music.map(element => addMusic(element.id, "musicCardsBody", music));
 
 // Functions
-function createSoundCards(id) {
+function createCards(idName, className, title) {
     const main = document.getElementById("main");
-    const item = `<section id=${id} class="sound-cards"></section>`
+    const item = `
+        <section id=${idName} class=${className}>
+            <header class=${className}__header><h1 class=${className}__heading>${title}</h1></header>
+            <div id=${idName}Body class=${className}__body></div>
+        </section>`
     main.insertAdjacentHTML('beforeend', item);
 }
 
 function addSound(id, parent, library) {
 
     // Variables
-    let soundCards = document.getElementById(parent);
+    let soundCardsBody = document.getElementById(parent);
     let sound = library.filter(a => a.id == id);
     let soundURL = sound.reduce((a, b) => b.audioURL, 0);
     let imageURL = sound.reduce((a, b) => b.imageURL, 0);
@@ -115,21 +126,60 @@ function addSound(id, parent, library) {
     let item = `<div id=${soundID} class="sound sound--disabled"><div><img class="sound__image" src=${imageURL} alt=${soundName}></div></div>`;
 
     // Inserts the sound element to its wrapper
-    soundCards.insertAdjacentHTML('beforeend', item);
+    soundCardsBody.insertAdjacentHTML('beforeend', item);
 
     // Add sound background
     let soundItem = document.getElementById(soundID);
-    // soundItem.style.background = `hsla(217, 0%, 51%, 1) url(${soundBgURL}) no-repeat center center/cover`;
-    // soundItem.style.backgroundBlendMode = "multiply";
 
     // Clicks to play or pause
-
     soundItem.addEventListener("click", function () {
         
         soundItem.classList.toggle("sound--disabled");
         soundItem.classList.toggle("sound--enabled");
         
         if (soundItem.className == "sound sound--enabled") {
+
+            if (typeof audio.loop == 'boolean') {
+                audio.loop = true;
+            } else {
+                audio.addEventListener('ended', function () {
+                    this.currentTime = 0;
+                    this.play();
+                }, false);
+            }
+
+            audio.play();
+        } else {
+            audio.pause();
+        }
+    }, false);
+}
+
+function addMusic(id, parent, library) {
+
+    // Variables
+    let musicCardsBody = document.getElementById(parent);
+    let music = library.filter(a => a.id == id);
+    let musicURL = music[0].audioURL;
+    let musicName = music[0].name;
+    let musicID = id;
+
+    let audio = new Audio(musicURL);
+    let item = `<div id=${musicID} class="music music--disabled">${musicName}</div>`;
+
+    // Inserts the music element to its wrapper
+    musicCardsBody.insertAdjacentHTML('beforeend', item);
+
+    // Add music background
+    let musicItem = document.getElementById(musicID);
+
+    // Clicks to play or pause
+    musicItem.addEventListener("click", function () {
+
+        musicItem.classList.toggle("music--disabled");
+        musicItem.classList.toggle("music--enabled");
+
+        if (musicItem.className == "music music--enabled") {
 
             if (typeof audio.loop == 'boolean') {
                 audio.loop = true;

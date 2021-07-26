@@ -36,23 +36,28 @@ ul {
 
 body {
   background: #eff5f1;
+  padding: 1rem;
 }
-body main {
+body main .sound-card {
   display: grid;
   grid-template-columns: 1rem 1fr 1rem;
 }
 @media screen and (min-width: 768px) {
-  body main {
+  body main .sound-card {
     grid-template-columns: 30% 1fr 30%;
   }
 }
-body main .sound-cards:nth-child(1) {
+body main .sound-card__header {
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+body main .sound-card__body {
   grid-column: 2/3;
   grid-row: 2/3;
   display: flex;
   flex-flow: row wrap;
 }
-body main .sound-cards:nth-child(1) .sound {
+body main .sound-card__body .sound {
   position: relative;
   border-radius: 1rem;
   width: 31%;
@@ -60,74 +65,73 @@ body main .sound-cards:nth-child(1) .sound {
   margin-bottom: 2%;
   margin-right: 3%;
 }
-body main .sound-cards:nth-child(1) .sound:before {
+body main .sound-card__body .sound:before {
   display: block;
   content: "";
   width: 100%;
   padding-top: 100%;
 }
-body main .sound-cards:nth-child(1) .sound > div {
+body main .sound-card__body .sound > div {
   position: absolute;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
 }
-body main .sound-cards:nth-child(1) .sound:nth-child(3n+3) {
+body main .sound-card__body .sound:nth-child(3n+3) {
   margin-right: 0;
 }
-body main .sound-cards:nth-child(1) .sound .sound__image {
+body main .sound-card__body .sound .sound__image {
   padding: 2rem;
 }
-body main .sound-cards:nth-child(2) {
-  grid-column: 2/3;
-  grid-row: 3/4;
+body main .music-card {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: column wrap;
 }
-body main .sound-cards:nth-child(2) .sound {
-  position: relative;
+body main .music-card__body {
+  display: flex;
+  flex-flow: column wrap;
+}
+body main .music-card__body .music {
   border-radius: 1rem;
-  width: 23.5%;
   padding: 2rem;
-  margin-bottom: 2%;
-  margin-right: 2%;
+  margin-bottom: 1rem;
+  cursor: pointer;
 }
-body main .sound-cards:nth-child(2) .sound:before {
-  display: block;
-  content: "";
-  width: 100%;
-  padding-top: 100%;
+body main .music-card__body .music--enabled {
+  background: #945d88;
+  transition: all 0.5s ease-in-out 0s;
 }
-body main .sound-cards:nth-child(2) .sound > div {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-}
-body main .sound-cards:nth-child(2) .sound:nth-child(4n+4) {
-  margin-right: 0;
-}
-body main .sound-cards:nth-child(2) .sound .sound__image {
-  padding: 2rem;
+body main .music-card__body .music--disabled {
+  background: #d1d4cf;
+  transition: all 0.5s ease-in-out 0s;
 }
 
-.sound-cards .sound {
+.sound-card__header,
+.music-card__header {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.sound-card__body .sound,
+.music-card__body .sound {
   opacity: 0.8;
   cursor: pointer;
 }
-.sound-cards .sound > div {
+.sound-card__body .sound > div,
+.music-card__body .sound > div {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
 }
-.sound-cards .sound--enabled {
+.sound-card__body .sound--enabled,
+.music-card__body .sound--enabled {
   background: #945d88;
   transition: all 0.5s ease-in-out 0s;
 }
-.sound-cards .sound--disabled {
+.sound-card__body .sound--disabled,
+.music-card__body .sound--disabled {
   background: #d1d4cf;
   transition: all 0.5s ease-in-out 0s;
 }
