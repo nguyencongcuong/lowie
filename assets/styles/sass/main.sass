@@ -1,7 +1,7 @@
 @use "sass:color"
 @use "sass:math"
     
-$primaryColor: hsl(91, 26%, 45%)
+$primaryColor: #5d9469
 $secondaryColor: color.change($primaryColor, $lightness: 95%)
 $accentColor: color.adjust($primaryColor, $hue: 180)
 
@@ -43,18 +43,39 @@ $btn--light: #f5f3f4
 @mixin rounded()
     border-radius: 1rem
 
+@mixin removeScrollbar()
+    overflow-y: scroll
+    scrollbar-width: none
+    -ms-overflow-style: none
+    &::-webkit-scrollbar
+        display: none
+
 *,
 *::before,
 *::after
     margin: 0
     padding: 0
     box-sizing: border-box
+    font-family: inherit
+    font-size: inherit
+
+html
+    @include removeScrollbar()
+    font-family: 'Lexend', sans-serif
+    font-size: 16px
+    line-height: 1.8
+
 img
     width: 100%
     height: auto
-
+a
+    text-decoration: none
+    color: $primaryColor
+ul
+    list-style-type: none
+// Main Styles
 body
-    background: #90aea2       
+    background: $secondaryColor     
     main
         display: grid
         grid-template-columns: 1rem 1fr 1rem
@@ -78,10 +99,10 @@ body
                 .sound__image
                     padding: 2rem
             .sound--enabled
-                background: #f8f8f8
+                background: $accentColor
                 transition: all 0.5s ease-in-out 0s
             .sound--disabled
-                background: #e2e1e1
+                background: #d1d4cf
                 transition: all 0.5s ease-in-out 0s
 
 .sound-cards
@@ -93,3 +114,30 @@ body
             flex-flow: row wrap
             justify-content: center
             align-items: center
+
+
+.main-header
+    display: flex
+    flex-flow: column wrap
+    justify-content: center
+    align-items: center
+    text-align: center
+    padding: $space2
+    .site
+        .site__title
+            font-size: 3rem
+        .site__desc
+            font-size: 1.5rem
+
+.main-footer
+    display: flex
+    flex-flow: column wrap
+    justify-content: center
+    align-items: center
+    .copyrights
+        display: flex
+        flex-flow: column wrap
+        justify-content: center
+        align-items: center
+        text-align: center
+        padding: $space2
