@@ -100,13 +100,19 @@ body main .music-card__body .music {
 }
 body main .music-card__body .music--enabled {
   background: #945d88;
+  color: white;
   transition: all 0.5s ease-in-out 0s;
 }
 body main .music-card__body .music--disabled {
   background: #d1d4cf;
+  color: black;
   transition: all 0.5s ease-in-out 0s;
 }
 
+.sound-card,
+.music-card {
+  margin-bottom: 2rem;
+}
 .sound-card__header,
 .music-card__header {
   font-size: 1.5rem;
@@ -164,6 +170,12 @@ body main .music-card__body .music--disabled {
   align-items: center;
   text-align: center;
   padding: 2rem;
+}
+.main-footer .copyrights__text {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */

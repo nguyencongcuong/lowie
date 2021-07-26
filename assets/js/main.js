@@ -1,79 +1,79 @@
 // Global Variables
 const sounds = [
     {
-        id: "00144",
+        id: "RzpYJ",
         name: "morning",
         audioURL: "./assets/sounds/morning-birds-singing.wav",
         imageURL: "./assets/images/sun.png"
     },
     {
-        id: "0014443",
+        id: "jXXQK",
         name: "night",
         audioURL: "./assets/sounds/crickets-at-night-in-nature.wav",
         imageURL: "./assets/images/moon.png"
     },
     {
-        id: "0014b43",
+        id: "FApyV",
         name: "beach",
         audioURL: "./assets/sounds/beach-waves-with-children-ambience.wav",
         imageURL: "./assets/images/beach.png"
     },
     {
-        id: "00123",
+        id: "unsUX",
         name: "forest",
         audioURL: "./assets/sounds/quiet-forest-ambience.wav",
         imageURL: "./assets/images/forest.png"
     },
     {
-        id: "00123z",
+        id: "BiTJa",
         name: "volcano",
         audioURL: "./assets/sounds/bubbling-volcano-lava-flow.wav",
         imageURL: "./assets/images/volcano.png"
     },
     {
-        id: "002",
+        id: "aGmeW",
         name: "birds",
         audioURL: "./assets/sounds/birds-in-jungle.wav",
         imageURL: "./assets/images/macaw.png"
     },
     {
-        id: "003",
+        id: "oWHEz",
         name: "rain",
         audioURL: "./assets/sounds/thunderstorm-and-rain.wav",
         imageURL: "./assets/images/rain.png"
     },
     {
-        id: "004",
+        id: "FwrPO",
         name: "river",
         audioURL: "./assets/sounds/river-water-flowing.wav",
         imageURL: "./assets/images/river.png"
     },
     {
-        id: "005",
+        id: "bv2DU",
         name: "sea",
         audioURL: "./assets/sounds/motorboat-on-the-sea.wav",
         imageURL: "./assets/images/sea.png"
     },
     {
-        id: "006",
+        id: "MFQ8x",
         name: "desert",
         audioURL: "./assets/sounds/desert-ambience.wav",
         imageURL: "./assets/images/desert.png"
     },
     {
-        id: "007",
+        id: "PTYsf",
         name: "waterfall",
         audioURL: "./assets/sounds/waterfall-in-the-woods.wav",
         imageURL: "./assets/images/waterfall.png"
     },
     {
-        id: "008",
+        id: "FN4Pq",
         name: "wind",
         audioURL: "./assets/sounds/wild-light-wind.wav",
         imageURL: "./assets/images/wind.png"
     },
     {
-        id: "009",
+        id: "WDGYy",
         name: "campfire",
         audioURL: "./assets/sounds/campfire-crackles.wav",
         imageURL: "./assets/images/campfire.png"
@@ -81,17 +81,33 @@ const sounds = [
 ]
 const music = [
     {
-        id: "001",
-        name: "Nhạc nền",
-        audioURL: "./assets/music/meditation_music_03.mp3",
-        imageURL: "./assets/images/lotus.png"
+        id: "89iWa",
+        name: "A New Beginning",
+        audioURL: "./assets/music/a-new-beginning.mp3",
     },
     {
-        id: "00dds1",
-        name: "Nhạc nền 2",
-        audioURL: "./assets/music/meditation_music_03.mp3",
-        imageURL: "./assets/images/lotus.png"
-    }    
+        id: "7ferN",
+        name: "Forgetfullness Potion",
+        audioURL: "./assets/music/forgetfullness-potion.mp3",
+    },
+    {
+        id: "Qw8fY",
+        name: "Healing Spell",
+        audioURL: "./assets/music/healing-spell.mp3",
+    }, {
+        id: "O3cXm",
+        name: "Morning Blessings",
+        audioURL: "./assets/music/morning-blessings.mp3",
+    },
+    {
+        id: "CL8o3",
+        name: "Purification",
+        audioURL: "./assets/music/purification.mp3",
+    }, {
+        id: "F7Mgd",
+        name: "Sleep Chant",
+        audioURL: "./assets/music/sleep-chant.mp3",
+    }
 ]
 
 // Process
@@ -120,16 +136,15 @@ function addSound(id, parent, library) {
     let soundURL = sound.reduce((a, b) => b.audioURL, 0);
     let imageURL = sound.reduce((a, b) => b.imageURL, 0);
     let soundName = sound.reduce((a, b) => b.name, 0);
-    let soundID = `${soundName.toLowerCase()}-${id}`;
 
     let audio = new Audio(soundURL);
-    let item = `<div id=${soundID} class="sound sound--disabled"><div><img class="sound__image" src=${imageURL} alt=${soundName}></div></div>`;
+    let item = `<div id=${id} class="sound sound--disabled"><div><img class="sound__image" src=${imageURL} alt=${soundName}></div></div>`;
 
     // Inserts the sound element to its wrapper
     soundCardsBody.insertAdjacentHTML('beforeend', item);
 
     // Add sound background
-    let soundItem = document.getElementById(soundID);
+    let soundItem = document.getElementById(id);
 
     // Clicks to play or pause
     soundItem.addEventListener("click", function () {
