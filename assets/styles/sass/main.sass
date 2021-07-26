@@ -73,57 +73,45 @@ a
     color: $primaryColor
 ul
     list-style-type: none
-// Main Styles
+
+// LAYOUT
 body
     background: $secondaryColor
-    padding: $space1
+    padding: $space2
     main
+        display: grid
+        grid-template-columns: 100%
+        grid-template-areas: "sound" "music"
+        @media screen and ( min-width: $breakpointMd )
+            grid-template-columns: 30% 40% 30% 
+            grid-template-areas: ". sound ." ". music ."
+            
         .sound-card
+            grid-area: sound
             display: grid
-            grid-template-columns: 1rem 1fr 1rem
-            @media screen and ( min-width: $breakpointMd )
-                grid-template-columns: 30% 1fr 30%            
+            grid-template-columns: 100%     
+            grid-template-areas: "sound-card__header" "sound-card__body"    
             &__header
-                grid-column: 2 / 3
-                grid-row: 1 / 2               
+                grid-area: sound-card__header
             &__body
-                grid-column: 2 / 3
-                grid-row: 2 / 3
-                display: flex
-                flex-flow: row wrap
-                .sound
-                    @include ratio(1,1)
-                    @include rounded()
-                    width: 31%
-                    padding: 2rem
-                    margin-bottom: 2%
-                    margin-right: 3%
-                    &:nth-child(3n + 3)
-                        margin-right: 0
-                    .sound__image
-                        padding: 2rem
+                grid-area: sound-card__body
+                display: grid
+                grid-template-columns: 1fr 1fr 1fr
+                grid-gap: $space1
+                    
         .music-card
-            display: flex
-            flex-flow: column wrap
+            grid-area: music
+            display: grid
+            grid-template-columns: 100%
+            grid-template-areas: "music-card__header" "music-card__body"
             &__header
+                grid-area: music-card__header
             &__body
-                display: flex
-                flex-flow: column wrap
-                .music
-                    @include rounded()
-                    padding: $space2
-                    margin-bottom: $space1
-                    cursor: pointer
-                .music--enabled
-                    background: $accentColor
-                    color: white
-                    transition: all 0.5s ease-in-out 0s
-                .music--disabled
-                    background: #d1d4cf
-                    color: black
-                    transition: all 0.5s ease-in-out 0s                      
-
-
+                grid-area: music-card__body
+                display: grid
+                grid-template-columns: 1fr
+                grid-gap: $space1
+                  
 .sound-card,
 .music-card
     margin-bottom: $space2
@@ -131,22 +119,34 @@ body
         font-size: 1.5rem
         text-align: center
         margin-bottom: $space2
-    &__body
-        .sound
-            opacity: 0.8
-            cursor: pointer        
-            > div    
-                display: flex
-                flex-flow: row wrap
-                justify-content: center
-                align-items: center
-        .sound--enabled
-            background: $accentColor
-            transition: all 0.5s ease-in-out 0s
-        .sound--disabled
-            background: #d1d4cf
-            transition: all 0.5s ease-in-out 0s             
 
+.sound-card
+    .sound
+        @include rounded()        
+        opacity: 0.8
+        cursor: pointer
+        .sound__image
+            padding: 2rem             
+    .sound--enabled
+        background: $accentColor
+        transition: all 0.5s ease-in-out 0s
+    .sound--disabled
+        background: #d1d4cf
+        transition: all 0.5s ease-in-out 0s             
+
+.music-card
+    .music
+        @include rounded()
+        padding: $space2
+        cursor: pointer
+    .music--enabled
+        background: $accentColor
+        color: white
+        transition: all 0.5s ease-in-out 0s
+    .music--disabled
+        background: #d1d4cf
+        color: black
+        transition: all 0.5s ease-in-out 0s    
 
 .main-header
     display: flex

@@ -138,7 +138,7 @@ function addSound(id, parent, library) {
     let soundName = sound.reduce((a, b) => b.name, 0);
 
     let audio = new Audio(soundURL);
-    let item = `<div id=${id} class="sound sound--disabled"><div><img class="sound__image" src=${imageURL} alt=${soundName}></div></div>`;
+    let item = `<div id=${id} class="sound sound--disabled"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
 
     // Inserts the sound element to its wrapper
     soundCardsBody.insertAdjacentHTML('beforeend', item);
