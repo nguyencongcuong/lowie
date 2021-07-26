@@ -6,6 +6,14 @@
   box-sizing: border-box;
 }
 
+img {
+  width: 100%;
+  height: auto;
+}
+
+body {
+  background: #90aea2;
+}
 body main {
   display: grid;
   grid-template-columns: 1rem 1fr 1rem;
@@ -25,7 +33,10 @@ body main .sound-cards {
 body main .sound-cards .sound {
   position: relative;
   border-radius: 1rem;
-  width: 49%;
+  width: 31%;
+  padding: 2rem;
+  margin-bottom: 2%;
+  margin-right: 3%;
 }
 body main .sound-cards .sound:before {
   display: block;
@@ -40,21 +51,30 @@ body main .sound-cards .sound > div {
   bottom: 0;
   left: 0;
 }
-body main .sound-cards .sound:nth-child(2n+1) {
-  margin-right: 1%;
+body main .sound-cards .sound:nth-child(3n+3) {
+  margin-right: 0;
+}
+body main .sound-cards .sound .sound__image {
+  padding: 2rem;
+}
+body main .sound-cards .sound--enabled {
+  background: #f8f8f8;
+  transition: all 0.5s ease-in-out 0s;
+}
+body main .sound-cards .sound--disabled {
+  background: #e2e1e1;
+  transition: all 0.5s ease-in-out 0s;
 }
 
+.sound-cards .sound {
+  opacity: 0.8;
+  cursor: pointer;
+}
 .sound-cards .sound > div {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   align-items: center;
-}
-.sound-cards .sound > div .sound__icon {
-  font-size: 3rem;
-  color: whitesmoke;
-  opacity: 0.8;
-  cursor: pointer;
 }
 
 /*# sourceMappingURL=main.css.map */
