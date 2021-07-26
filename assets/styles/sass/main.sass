@@ -17,15 +17,6 @@ $breakpointMd: 768px // Medium devices (landscape tablets, 768px and up)
 $breakpointLg: 1024px // Large devices (laptops/desktops, 992px and up)
 $breakpointXl: 1280px // Extra large devices (large laptops and desktops, 1200px and up)
 
-$btn--primary: #0077b6
-$btn--secondary: #adb5bd
-$btn--success: #73a942
-$btn--danger: #c1121f
-$btn--warning: #ffba08
-$btn--info: #83c5be
-$btn--dark: #3f4238
-$btn--light: #f5f3f4
-
 @mixin ratio($x, $y)
     position: relative
     &:before
@@ -41,7 +32,7 @@ $btn--light: #f5f3f4
         left: 0
     
 @mixin rounded()
-    border-radius: 1rem
+    border-radius: 10px
 
 @mixin removeScrollbar()
     overflow-y: scroll
@@ -114,7 +105,7 @@ body
                   
 .sound-card,
 .music-card
-    margin-bottom: $space2
+    margin-bottom: $space3
     &__header
         font-size: 1.5rem
         text-align: center
@@ -154,12 +145,15 @@ body
     justify-content: center
     align-items: center
     text-align: center
-    padding: $space2
+    margin-bottom: $space3
     .site
         .site__title
             font-size: 3rem
         .site__desc
-            font-size: 1.5rem
+            font-size: 1.2rem
+
+.main-body
+    margin-bottom: $space3
 
 .main-footer
     display: flex

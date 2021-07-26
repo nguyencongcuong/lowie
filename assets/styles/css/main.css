@@ -82,7 +82,7 @@ body main .music-card__body {
 
 .sound-card,
 .music-card {
-  margin-bottom: 2rem;
+  margin-bottom: 3rem;
 }
 .sound-card__header,
 .music-card__header {
@@ -92,7 +92,7 @@ body main .music-card__body {
 }
 
 .sound-card .sound {
-  border-radius: 1rem;
+  border-radius: 10px;
   opacity: 0.8;
   cursor: pointer;
 }
@@ -109,7 +109,7 @@ body main .music-card__body {
 }
 
 .music-card .music {
-  border-radius: 1rem;
+  border-radius: 10px;
   padding: 2rem;
   cursor: pointer;
 }
@@ -130,13 +130,17 @@ body main .music-card__body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 2rem;
+  margin-bottom: 3rem;
 }
 .main-header .site .site__title {
   font-size: 3rem;
 }
 .main-header .site .site__desc {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.main-body {
+  margin-bottom: 3rem;
 }
 
 .main-footer {
