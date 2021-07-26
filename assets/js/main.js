@@ -1,57 +1,81 @@
 // Global Variables
 const sounds = [
     {
-        id: "001",
+        id: "00144",
+        name: "morning",
+        audioURL: "./assets/sounds/morning-birds-singing.wav",
+        imageURL: "./assets/images/sun.png"
+    },
+    {
+        id: "0014443",
+        name: "night",
+        audioURL: "./assets/sounds/crickets-at-night-in-nature.wav",
+        imageURL: "./assets/images/moon.png"
+    },
+    {
+        id: "0014b43",
+        name: "beach",
+        audioURL: "./assets/sounds/beach-waves-with-children-ambience.wav",
+        imageURL: "./assets/images/beach.png"
+    },
+    {
+        id: "00123",
         name: "forest",
-        audioURL: "./assets/sounds/forest.mp3",
+        audioURL: "./assets/sounds/quiet-forest-ambience.wav",
         imageURL: "./assets/images/forest.png"
     },
     {
+        id: "00123z",
+        name: "volcano",
+        audioURL: "./assets/sounds/bubbling-volcano-lava-flow.wav",
+        imageURL: "./assets/images/volcano.png"
+    },
+    {
         id: "002",
-        name: "macaw",
-        audioURL: "./assets/sounds/macaw.mp3",
+        name: "birds",
+        audioURL: "./assets/sounds/birds-in-jungle.wav",
         imageURL: "./assets/images/macaw.png"
     },
     {
         id: "003",
         name: "rain",
-        audioURL: "./assets/sounds/rain.mp3",
+        audioURL: "./assets/sounds/thunderstorm-and-rain.wav",
         imageURL: "./assets/images/rain.png"
     },
     {
         id: "004",
         name: "river",
-        audioURL: "./assets/sounds/river.mp3",
+        audioURL: "./assets/sounds/river-water-flowing.wav",
         imageURL: "./assets/images/river.png"
     },
     {
         id: "005",
         name: "sea",
-        audioURL: "./assets/sounds/sea.mp3",
+        audioURL: "./assets/sounds/motorboat-on-the-sea.wav",
         imageURL: "./assets/images/sea.png"
     },
     {
         id: "006",
-        name: "water",
-        audioURL: "./assets/sounds/water.mp3",
-        imageURL: "./assets/images/water.png"
+        name: "desert",
+        audioURL: "./assets/sounds/desert-ambience.wav",
+        imageURL: "./assets/images/desert.png"
     },
     {
         id: "007",
         name: "waterfall",
-        audioURL: "./assets/sounds/waterfall.mp3",
+        audioURL: "./assets/sounds/waterfall-in-the-woods.wav",
         imageURL: "./assets/images/waterfall.png"
     },
     {
         id: "008",
         name: "wind",
-        audioURL: "./assets/sounds/wind.mp3",
+        audioURL: "./assets/sounds/wild-light-wind.wav",
         imageURL: "./assets/images/wind.png"
     },
     {
         id: "009",
         name: "campfire",
-        audioURL: "./assets/sounds/campfire.mp3",
+        audioURL: "./assets/sounds/campfire-crackles.wav",
         imageURL: "./assets/images/campfire.png"
     }
 ]
