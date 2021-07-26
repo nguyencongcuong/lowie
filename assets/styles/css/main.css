@@ -1,0 +1,60 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body main {
+  display: grid;
+  grid-template-columns: 1rem 1fr 1rem;
+  grid-template-rows: 1rem 1fr 1rem;
+}
+@media screen and (min-width: 768px) {
+  body main {
+    grid-template-columns: 30% 1fr 30%;
+  }
+}
+body main .sound-cards {
+  grid-column: 2/3;
+  grid-row: 2/3;
+  display: flex;
+  flex-flow: row wrap;
+}
+body main .sound-cards .sound {
+  position: relative;
+  border-radius: 1rem;
+  width: 49%;
+}
+body main .sound-cards .sound:before {
+  display: block;
+  content: "";
+  width: 100%;
+  padding-top: 100%;
+}
+body main .sound-cards .sound > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+body main .sound-cards .sound:nth-child(2n+1) {
+  margin-right: 1%;
+}
+
+.sound-cards .sound > div {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+}
+.sound-cards .sound > div .sound__icon {
+  font-size: 3rem;
+  color: whitesmoke;
+  opacity: 0.8;
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=main.css.map */
