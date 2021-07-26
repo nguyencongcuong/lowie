@@ -13,11 +13,41 @@ const sounds = [
         imageURL: "./assets/images/moon.png"
     },
     {
+        id: "oWHEz",
+        name: "rain",
+        audioURL: "./assets/sounds/thunderstorm-and-rain.wav",
+        imageURL: "./assets/images/rain.png"
+    },    
+    {
+        id: "G19a0",
+        name: "snowfall",
+        audioURL: "./assets/sounds/falling-snow.wav",
+        imageURL: "./assets/images/snow.png"
+    }, 
+    {
+        id: "bv2DU",
+        name: "sea",
+        audioURL: "./assets/sounds/motorboat-on-the-sea.wav",
+        imageURL: "./assets/images/sea.png"
+    },       
+    {
         id: "FApyV",
         name: "beach",
         audioURL: "./assets/sounds/beach-waves-with-children-ambience.wav",
         imageURL: "./assets/images/beach.png"
     },
+    {
+        id: "FwrPO",
+        name: "river",
+        audioURL: "./assets/sounds/river-water-flowing.wav",
+        imageURL: "./assets/images/river.png"
+    },    
+    {
+        id: "PTYsf",
+        name: "waterfall",
+        audioURL: "./assets/sounds/waterfall-in-the-woods.wav",
+        imageURL: "./assets/images/waterfall.png"
+    },      
     {
         id: "unsUX",
         name: "forest",
@@ -29,42 +59,12 @@ const sounds = [
         name: "volcano",
         audioURL: "./assets/sounds/bubbling-volcano-lava-flow.wav",
         imageURL: "./assets/images/volcano.png"
-    },
-    {
-        id: "aGmeW",
-        name: "birds",
-        audioURL: "./assets/sounds/birds-in-jungle.wav",
-        imageURL: "./assets/images/macaw.png"
-    },
-    {
-        id: "oWHEz",
-        name: "rain",
-        audioURL: "./assets/sounds/thunderstorm-and-rain.wav",
-        imageURL: "./assets/images/rain.png"
-    },
-    {
-        id: "FwrPO",
-        name: "river",
-        audioURL: "./assets/sounds/river-water-flowing.wav",
-        imageURL: "./assets/images/river.png"
-    },
-    {
-        id: "bv2DU",
-        name: "sea",
-        audioURL: "./assets/sounds/motorboat-on-the-sea.wav",
-        imageURL: "./assets/images/sea.png"
-    },
+    },  
     {
         id: "MFQ8x",
         name: "desert",
         audioURL: "./assets/sounds/desert-ambience.wav",
         imageURL: "./assets/images/desert.png"
-    },
-    {
-        id: "PTYsf",
-        name: "waterfall",
-        audioURL: "./assets/sounds/waterfall-in-the-woods.wav",
-        imageURL: "./assets/images/waterfall.png"
     },
     {
         id: "FN4Pq",
@@ -77,6 +77,18 @@ const sounds = [
         name: "campfire",
         audioURL: "./assets/sounds/campfire-crackles.wav",
         imageURL: "./assets/images/campfire.png"
+    },
+    {
+        id: "aGmeW",
+        name: "birds",
+        audioURL: "./assets/sounds/birds-in-jungle.wav",
+        imageURL: "./assets/images/macaw.png"
+    },    
+    {
+        id: "x6hQ5",
+        name: "farm",
+        audioURL: "./assets/sounds/farm-animals-in-the-morning.wav",
+        imageURL: "./assets/images/farm.png"
     }
 ]
 const music = [
