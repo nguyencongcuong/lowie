@@ -107,59 +107,55 @@ const audios = [
     },
     {
         id: "89iWa",
-        name: "A New Beginning",
+        name: "Khởi Đầu Mới",
         audioURL: "./assets/music/a-new-beginning.mp3",
         imageURL: null,
         category: "background music"
     },
     {
         id: "7ferN",
-        name: "Forgetfullness Potion",
+        name: "Lọ Thuốc Lãng Quên",
         audioURL: "./assets/music/forgetfullness-potion.mp3",
         imageURL: null,
         category: "background music"
     },
     {
         id: "Qw8fY",
-        name: "Healing Spell",
+        name: "Phép Thuật Hồi Phục",
         audioURL: "./assets/music/healing-spell.mp3",
         imageURL: null,
         category: "background music"
     }, 
     {
         id: "O3cXm",
-        name: "Morning Blessings",
+        name: "Sáng Cầu Nguyện",
         audioURL: "./assets/music/morning-blessings.mp3",
         imageURL: null,
         category: "background music"
     },
     {
         id: "CL8o3",
-        name: "Purification",
+        name: "Sự Thanh Lọc",
         audioURL: "./assets/music/purification.mp3",
         imageURL: null,
         category: "background music"
     }, 
     {
         id: "F7Mgd",
-        name: "Sleep Chant",
+        name: "Giấc Ngủ Ngon",
         audioURL: "./assets/music/sleep-chant.mp3",
         imageURL: null,
         category: "background music"
     }    
 ]
-const soundItemTemplate = (id, soundName, imageURL) => `<div id=${id} class="audio inactive"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
-const musicItemTemplate = (id, musicName) => `<div id=${id} class="audio inactive">${musicName}</div>`;
+const soundItemTemplate = (id, soundName, imageURL) => `<div id=${id} class="audio__item audio__item--inactive"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
+const musicItemTemplate = (id, musicName) => `<div id=${id} class="audio__item audio__item--inactive">${musicName}</div>`;
 
 // * MAIN
-createCollection("soundCards", "sound-card", "Âm thanh");
-audios
-    .filter(a => a.category == "sound")
-    .map(b => addAudio(b.id, soundItemTemplate(b.id, b.name, b.imageURL), "soundCardsBody", audios));
-createCollection("musicCards", "music-card", "Nhạc nền");
-audios
-    .filter(a => a.category == "background music")
-    .map(b => addAudio(b.id, musicItemTemplate(b.id, b.name), "musicCardsBody", audios));
+createCollection("soundCards", "audio", "Âm thanh");
+audios.filter(a => a.category == "sound").map(b => addAudio(b.id, soundItemTemplate(b.id, b.name, b.imageURL), "soundCardsBody", audios));
+createCollection("musicCards", "audio", "Nhạc nền");
+audios.filter(a => a.category == "background music").map(b => addAudio(b.id, musicItemTemplate(b.id, b.name), "musicCardsBody", audios));
 
 // * FUNCTIONS
 
@@ -173,7 +169,7 @@ function createCollection(idName, className, title) {
     const main = document.getElementById("main");
     const item = `
         <section id=${idName} class=${className}>
-            <header class=${className}__header><h1 class=${className}__heading>${title}</h1></header>
+            <header class=${className}__header><h2 class=${className}__heading>${title}</h2></header>
             <div id=${idName}Body class=${className}__body></div>
         </section>`
     main.insertAdjacentHTML('beforeend', item);
@@ -208,9 +204,9 @@ function activateAudio(id, url) {
     const audio = new Audio(url);
     const item = document.getElementById(id);
     item.addEventListener("click", function () {
-        item.classList.toggle("inactive");
-        item.classList.toggle("active");
-        if (item.classList.contains("active")) {
+        item.classList.toggle("audio__item--inactive");
+        item.classList.toggle("audio__item--active");
+        if (item.classList.contains("audio__item--active")) {
             if (typeof audio.loop == 'boolean') {
                 audio.loop = true;
             } else {

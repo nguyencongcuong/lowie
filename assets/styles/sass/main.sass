@@ -67,94 +67,83 @@ ul
 
 // LAYOUT
 body
-    background: $secondaryColor
-    padding: $space2
-    main
-        display: grid
-        grid-template-columns: 100%
-        grid-template-areas: "sound" "music"
-        @media screen and ( min-width: $breakpointMd )
-            grid-template-columns: 30% 40% 30% 
-            grid-template-areas: ". sound ." ". music ."
-            
-        .sound-card
-            grid-area: sound
+    // Body
+    display: grid
+    grid-template-columns: 100%
+    grid-template-areas: "header" "main" "footer"
+    @media screen and ( min-width: $breakpointMd )
+        grid-template-columns: 1fr 2fr 1fr
+        grid-template-areas: ". header ." ". main ." ". footer ."        
+    .main-header
+        grid-area: header
+    .main-body
+        grid-area: main
+    .main-footer
+        grid-area: footer
+
+    // Main Header, Body, Footer
+    .main-header,
+    .main-body,
+    .main-footer
+        display: flex
+        flex-flow: column wrap
+
+    // Audio
+    .audio
+        display: flex
+        flex-flow: column wrap
+        &__body
             display: grid
-            grid-template-columns: 100%     
-            grid-template-areas: "sound-card__header" "sound-card__body"    
-            &__header
-                grid-area: sound-card__header
-            &__body
-                grid-area: sound-card__body
-                display: grid
-                grid-template-columns: 1fr 1fr 1fr
-                grid-gap: $space1
-                    
-        .music-card
-            grid-area: music
-            display: grid
-            grid-template-columns: 100%
-            grid-template-areas: "music-card__header" "music-card__body"
-            &__header
-                grid-area: music-card__header
-            &__body
-                grid-area: music-card__body
-                display: grid
-                grid-template-columns: 1fr
-                grid-gap: $space1
-                  
-.sound-card,
-.music-card
-    margin-bottom: $space3
-    &__header
-        font-size: 1.5rem
-        text-align: center
-        margin-bottom: $space2
-
-.audio
-    @include rounded()
-    padding: $space1
-    cursor: pointer
-
-.active
-    background: $accentColor
-    color: white
-    transition: all 0.5s ease-in-out 0s
-.inactive
-    background: #d1d4cf
-    color: black
-    transition: all 0.5s ease-in-out 0s    
-
-.main-header
-    display: flex
-    flex-flow: column wrap
-    justify-content: center
-    align-items: center
-    text-align: center
-    margin-bottom: $space3
-    .site
-        .site__title
-            font-size: 3rem
-        .site__desc
-            font-size: 1.2rem
-
-.main-body
-    margin-bottom: $space3
-
-.main-footer
-    display: flex
-    flex-flow: column wrap
-    justify-content: center
-    align-items: center
+            grid-template-columns: 1fr 1fr 1fr
+            grid-gap: $space1
+        
+    // Footer 
     .copyrights
         display: flex
         flex-flow: column wrap
         justify-content: center
         align-items: center
-        text-align: center
-        padding: $space2
         &__text
             display: flex
             flex-flow: column wrap
             justify-content: center
             align-items: center
+
+// SPACES
+body
+    background: $secondaryColor
+    padding: $space2
+    main
+        padding: $space2 0
+
+// COMPONENTS
+.main-header
+    text-align: center    
+    .site
+        &__title
+            font-size: 3rem
+        &__desc
+            font-size: 1.2rem
+.main-body
+    text-align: center    
+    .audio
+        &__header
+            font-size: 1.5rem
+            text-align: center
+        &__body
+            padding: $space2 0 
+            .audio__item
+                @include rounded()
+                padding: $space1
+                cursor: pointer
+            .audio__item--active
+                background: $accentColor
+                color: white
+                transition: all 0.3s ease-in-out 0s
+            .audio__item--inactive
+                background: #d1d4cf
+                color: black
+                transition: all 0.3s ease-in-out 0s    
+
+.main-footer
+    text-align: center

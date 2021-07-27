@@ -35,118 +35,99 @@ ul {
 }
 
 body {
-  background: #eff5f1;
-  padding: 2rem;
-}
-body main {
   display: grid;
   grid-template-columns: 100%;
-  grid-template-areas: "sound" "music";
+  grid-template-areas: "header" "main" "footer";
 }
 @media screen and (min-width: 768px) {
-  body main {
-    grid-template-columns: 30% 40% 30%;
-    grid-template-areas: ". sound ." ". music .";
+  body {
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-areas: ". header ." ". main ." ". footer .";
   }
 }
-body main .sound-card {
-  grid-area: sound;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-areas: "sound-card__header" "sound-card__body";
+body .main-header {
+  grid-area: header;
 }
-body main .sound-card__header {
-  grid-area: sound-card__header;
+body .main-body {
+  grid-area: main;
 }
-body main .sound-card__body {
-  grid-area: sound-card__body;
+body .main-footer {
+  grid-area: footer;
+}
+body .main-header,
+body .main-body,
+body .main-footer {
+  display: flex;
+  flex-flow: column wrap;
+}
+body .audio {
+  display: flex;
+  flex-flow: column wrap;
+}
+body .audio__body {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 1rem;
 }
-body main .music-card {
-  grid-area: music;
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-areas: "music-card__header" "music-card__body";
-}
-body main .music-card__header {
-  grid-area: music-card__header;
-}
-body main .music-card__body {
-  grid-area: music-card__body;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-gap: 1rem;
-}
-
-.sound-card,
-.music-card {
-  margin-bottom: 3rem;
-}
-.sound-card__header,
-.music-card__header {
-  font-size: 1.5rem;
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.audio {
-  border-radius: 10px;
-  padding: 1rem;
-  cursor: pointer;
-}
-
-.active {
-  background: #945d88;
-  color: white;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-.inactive {
-  background: #d1d4cf;
-  color: black;
-  transition: all 0.5s ease-in-out 0s;
-}
-
-.main-header {
+body .copyrights {
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  margin-bottom: 3rem;
 }
-.main-header .site .site__title {
+body .copyrights__text {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+body {
+  background: #eff5f1;
+  padding: 2rem;
+}
+body main {
+  padding: 2rem 0;
+}
+
+.main-header {
+  text-align: center;
+}
+.main-header .site__title {
   font-size: 3rem;
 }
-.main-header .site .site__desc {
+.main-header .site__desc {
   font-size: 1.2rem;
 }
 
 .main-body {
-  margin-bottom: 3rem;
+  text-align: center;
+}
+.main-body .audio__header {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.main-body .audio__body {
+  padding: 2rem 0;
+}
+.main-body .audio__body .audio__item {
+  border-radius: 10px;
+  padding: 1rem;
+  cursor: pointer;
+}
+.main-body .audio__body .audio__item--active {
+  background: #945d88;
+  color: white;
+  transition: all 0.3s ease-in-out 0s;
+}
+.main-body .audio__body .audio__item--inactive {
+  background: #d1d4cf;
+  color: black;
+  transition: all 0.3s ease-in-out 0s;
 }
 
 .main-footer {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
-}
-.main-footer .copyrights {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
   text-align: center;
-  padding: 2rem;
-}
-.main-footer .copyrights__text {
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: center;
 }
 
 /*# sourceMappingURL=main.css.map */
