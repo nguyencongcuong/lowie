@@ -1,136 +1,175 @@
-// Global Variables
-const sounds = [
+// * VARIABLES
+const audios = [
     {
         id: "RzpYJ",
         name: "morning",
         audioURL: "./assets/sounds/morning-birds-singing.wav",
-        imageURL: "./assets/images/sun.png"
+        imageURL: "./assets/images/sun.png",
+        category: "sound"
     },
     {
         id: "jXXQK",
         name: "night",
         audioURL: "./assets/sounds/crickets-at-night-in-nature.wav",
-        imageURL: "./assets/images/moon.png"
+        imageURL: "./assets/images/moon.png",
+        category: "sound"
     },
     {
         id: "oWHEz",
         name: "rain",
         audioURL: "./assets/sounds/thunderstorm-and-rain.wav",
-        imageURL: "./assets/images/rain.png"
+        imageURL: "./assets/images/rain.png",
+        category: "sound"
     },    
     {
         id: "G19a0",
         name: "snowfall",
         audioURL: "./assets/sounds/falling-snow.wav",
-        imageURL: "./assets/images/snow.png"
+        imageURL: "./assets/images/snow.png",
+        category: "sound"
     }, 
     {
         id: "bv2DU",
         name: "sea",
         audioURL: "./assets/sounds/motorboat-on-the-sea.wav",
-        imageURL: "./assets/images/sea.png"
+        imageURL: "./assets/images/sea.png",
+        category: "sound"
     },       
     {
         id: "FApyV",
         name: "beach",
         audioURL: "./assets/sounds/beach-waves-with-children-ambience.wav",
-        imageURL: "./assets/images/beach.png"
+        imageURL: "./assets/images/beach.png",
+        category: "sound"
     },
     {
         id: "FwrPO",
         name: "river",
         audioURL: "./assets/sounds/river-water-flowing.wav",
-        imageURL: "./assets/images/river.png"
+        imageURL: "./assets/images/river.png",
+        category: "sound"
     },    
     {
         id: "PTYsf",
         name: "waterfall",
         audioURL: "./assets/sounds/waterfall-in-the-woods.wav",
-        imageURL: "./assets/images/waterfall.png"
+        imageURL: "./assets/images/waterfall.png",
+        category: "sound"
     },      
     {
         id: "unsUX",
         name: "forest",
         audioURL: "./assets/sounds/quiet-forest-ambience.wav",
-        imageURL: "./assets/images/forest.png"
+        imageURL: "./assets/images/forest.png",
+        category: "sound"
     },
     {
         id: "BiTJa",
         name: "volcano",
         audioURL: "./assets/sounds/bubbling-volcano-lava-flow.wav",
-        imageURL: "./assets/images/volcano.png"
+        imageURL: "./assets/images/volcano.png",
+        category: "sound"
     },  
     {
         id: "MFQ8x",
         name: "desert",
         audioURL: "./assets/sounds/desert-ambience.wav",
-        imageURL: "./assets/images/desert.png"
+        imageURL: "./assets/images/desert.png",
+        category: "sound"
     },
     {
         id: "FN4Pq",
         name: "wind",
         audioURL: "./assets/sounds/wild-light-wind.wav",
-        imageURL: "./assets/images/wind.png"
+        imageURL: "./assets/images/wind.png",
+        category: "sound"
     },
     {
         id: "WDGYy",
         name: "campfire",
         audioURL: "./assets/sounds/campfire-crackles.wav",
-        imageURL: "./assets/images/campfire.png"
+        imageURL: "./assets/images/campfire.png",
+        category: "sound"
     },
     {
         id: "aGmeW",
         name: "birds",
         audioURL: "./assets/sounds/birds-in-jungle.wav",
-        imageURL: "./assets/images/macaw.png"
+        imageURL: "./assets/images/macaw.png",
+        category: "sound"
     },    
     {
         id: "x6hQ5",
         name: "farm",
         audioURL: "./assets/sounds/farm-animals-in-the-morning.wav",
-        imageURL: "./assets/images/farm.png"
-    }
-]
-const music = [
+        imageURL: "./assets/images/farm.png",
+        category: "sound"
+    },
     {
         id: "89iWa",
         name: "A New Beginning",
         audioURL: "./assets/music/a-new-beginning.mp3",
+        imageURL: null,
+        category: "background music"
     },
     {
         id: "7ferN",
         name: "Forgetfullness Potion",
         audioURL: "./assets/music/forgetfullness-potion.mp3",
+        imageURL: null,
+        category: "background music"
     },
     {
         id: "Qw8fY",
         name: "Healing Spell",
         audioURL: "./assets/music/healing-spell.mp3",
-    }, {
+        imageURL: null,
+        category: "background music"
+    }, 
+    {
         id: "O3cXm",
         name: "Morning Blessings",
         audioURL: "./assets/music/morning-blessings.mp3",
+        imageURL: null,
+        category: "background music"
     },
     {
         id: "CL8o3",
         name: "Purification",
         audioURL: "./assets/music/purification.mp3",
-    }, {
+        imageURL: null,
+        category: "background music"
+    }, 
+    {
         id: "F7Mgd",
         name: "Sleep Chant",
         audioURL: "./assets/music/sleep-chant.mp3",
-    }
+        imageURL: null,
+        category: "background music"
+    }    
 ]
+const soundItemTemplate = (id, soundName, imageURL) => `<div id=${id} class="audio inactive"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
+const musicItemTemplate = (id, musicName) => `<div id=${id} class="audio inactive">${musicName}</div>`;
 
-// Process
-createCards("soundCards", "sound-card", "Âm thanh");
-sounds.map(element => addSound(element.id, "soundCardsBody", sounds));
+// * MAIN
+createCollection("soundCards", "sound-card", "Âm thanh");
+audios
+    .filter(a => a.category == "sound")
+    .map(b => addAudio(b.id, soundItemTemplate(b.id, b.name, b.imageURL), "soundCardsBody", audios));
+createCollection("musicCards", "music-card", "Nhạc nền");
+audios
+    .filter(a => a.category == "background music")
+    .map(b => addAudio(b.id, musicItemTemplate(b.id, b.name), "musicCardsBody", audios));
 
-createCards("musicCards", "music-card", "Nhạc nền");
-music.map(element => addMusic(element.id, "musicCardsBody", music));
+// * FUNCTIONS
 
-// Functions
-function createCards(idName, className, title) {
+/**
+ * ? Tạo HTML cha chứa các phần tử con là audio
+ * @param {string} idName 
+ * @param {string} className 
+ * @param {string} title 
+ */
+function createCollection(idName, className, title) {
     const main = document.getElementById("main");
     const item = `
         <section id=${idName} class=${className}>
@@ -140,74 +179,38 @@ function createCards(idName, className, title) {
     main.insertAdjacentHTML('beforeend', item);
 }
 
-function addSound(id, parent, library) {
-
-    // Variables
-    let soundCardsBody = document.getElementById(parent);
-    let sound = library.filter(a => a.id == id);
-    let soundURL = sound.reduce((a, b) => b.audioURL, 0);
-    let imageURL = sound.reduce((a, b) => b.imageURL, 0);
-    let soundName = sound.reduce((a, b) => b.name, 0);
-
-    let audio = new Audio(soundURL);
-    let item = `<div id=${id} class="sound sound--disabled"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
-
-    // Inserts the sound element to its wrapper
-    soundCardsBody.insertAdjacentHTML('beforeend', item);
-
-    // Add sound background
-    let soundItem = document.getElementById(id);
-
-    // Clicks to play or pause
-    soundItem.addEventListener("click", function () {
-        
-        soundItem.classList.toggle("sound--disabled");
-        soundItem.classList.toggle("sound--enabled");
-        
-        if (soundItem.className == "sound sound--enabled") {
-
-            if (typeof audio.loop == 'boolean') {
-                audio.loop = true;
-            } else {
-                audio.addEventListener('ended', function () {
-                    this.currentTime = 0;
-                    this.play();
-                }, false);
-            }
-
-            audio.play();
-        } else {
-            audio.pause();
-        }
-    }, false);
+/**
+ * ? Xác định file audio và truy xuất thuộc tính audioURL
+ * ? Tạo HTML cho phần tử audio đó và thêm vào HTML cha
+ * ? Chạy hàm activateAudio()
+ * @param {string} id 
+ * @param {string} divItem 
+ * @param {string} parentID 
+ * @param {array} audioCollection 
+ */
+function addAudio(id, divItem, parentID, audioCollection) {
+    const cardBody = document.getElementById(parentID);
+    const obj = audioCollection.filter(e => e.id == id);
+    const audioURL = obj[0].audioURL;
+    const audioHTML = divItem; 
+    cardBody.insertAdjacentHTML("beforeend", audioHTML);
+    activateAudio(id, audioURL);
 }
 
-function addMusic(id, parent, library) {
-
-    // Variables
-    let musicCardsBody = document.getElementById(parent);
-    let music = library.filter(a => a.id == id);
-    let musicURL = music[0].audioURL;
-    let musicName = music[0].name;
-    let musicID = id;
-
-    let audio = new Audio(musicURL);
-    let item = `<div id=${musicID} class="music music--disabled">${musicName}</div>`;
-
-    // Inserts the music element to its wrapper
-    musicCardsBody.insertAdjacentHTML('beforeend', item);
-
-    // Add music background
-    let musicItem = document.getElementById(musicID);
-
-    // Clicks to play or pause
-    musicItem.addEventListener("click", function () {
-
-        musicItem.classList.toggle("music--disabled");
-        musicItem.classList.toggle("music--enabled");
-
-        if (musicItem.className == "music music--enabled") {
-
+/**
+ * ? Load file audio
+ * ? Chơi hoặc tạm dừng sau mỗi lần click chuột
+ * ? Tự động replay
+ * @param {string} id 
+ * @param {string} url 
+ */
+function activateAudio(id, url) {
+    const audio = new Audio(url);
+    const item = document.getElementById(id);
+    item.addEventListener("click", function () {
+        item.classList.toggle("inactive");
+        item.classList.toggle("active");
+        if (item.classList.contains("active")) {
             if (typeof audio.loop == 'boolean') {
                 audio.loop = true;
             } else {
@@ -216,7 +219,6 @@ function addMusic(id, parent, library) {
                     this.play();
                 }, false);
             }
-
             audio.play();
         } else {
             audio.pause();
