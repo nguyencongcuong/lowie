@@ -70,42 +70,46 @@ body
     // Body
     display: grid
     grid-template-columns: 100%
-    grid-template-areas: "header" "main" "footer"
-    @media screen and ( min-width: $breakpointMd )
-        grid-template-columns: 1fr 2fr 1fr
-        grid-template-areas: ". header ." ". main ." ". footer ."        
+    grid-template-rows: 20vh auto 20vh
+    // @media screen and ( min-width: $breakpointLg )
+    //     grid-template-columns: 1fr 2fr 1fr
+    //     grid-template-areas: ". header ." ". main ." ". footer ."        
     .main-header
-        grid-area: header
+        grid-column: 1 / 2
+        grid-row: 1 / 2
     .main-body
-        grid-area: main
+        grid-column: 1 / 2
+        grid-row: 2 / 3
     .main-footer
-        grid-area: footer
-
-    // Main Header, Body, Footer
-    .main-header,
-    .main-body,
-    .main-footer
-        display: flex
-        flex-flow: column wrap
+        grid-column: 1 / 2
+        grid-row: 3 / 4
 
     // Audio
     .audio
         display: flex
-        flex-flow: column wrap
+        flex-flow: column nowrap
         &__body
             display: grid
-            grid-template-columns: 1fr 1fr 1fr
+            grid-template-columns: 1fr
+            grid-template-rows: auto
             grid-gap: $space1
+            .audio__item
+                padding: 30%
+            @media screen and ( min-width: $breakpointSm )
+                grid-template-columns: 1fr 1fr  
+            @media screen and ( min-width: $breakpointMd )
+                grid-template-columns: 1fr 1fr 1fr                                              
+            
         
     // Footer 
     .copyrights
         display: flex
-        flex-flow: column wrap
+        flex-flow: column nowrap
         justify-content: center
         align-items: center
         &__text
             display: flex
-            flex-flow: column wrap
+            flex-flow: column nowrap
             justify-content: center
             align-items: center
 
@@ -134,7 +138,6 @@ body
             padding: $space2 0 
             .audio__item
                 @include rounded()
-                padding: $space1
                 cursor: pointer
             .audio__item--active
                 background: $accentColor
