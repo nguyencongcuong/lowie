@@ -148,8 +148,8 @@ const audios = [
         category: "background music"
     }    
 ]
-const soundItemTemplate = (id, soundName, imageURL) => `<div id=${id} class="audio__item audio__item--inactive"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
-const musicItemTemplate = (id, musicName) => `<div id=${id} class="audio__item audio__item--inactive">${musicName}</div>`;
+const soundItemTemplate = (id, soundName, imageURL) => `<div id="${id}" class="audio__item audio__item--inactive"><img class="sound__image" src=${imageURL} alt=${soundName}></div>`;
+const musicItemTemplate = (id, musicName) => `<div id="${id}" class="audio__item audio__item--inactive">${musicName}</div>`;
 
 // * MAIN
 createCollection("soundCards", "audio", "Âm thanh");
@@ -170,7 +170,7 @@ function createCollection(idName, className, title) {
     const item = `
         <section id=${idName} class=${className}>
             <header class=${className}__header><h2 class=${className}__heading>${title}</h2></header>
-            <div id=${idName}Body class=${className}__body></div>
+            <div id=${idName}Body class="${className}__body"></div>
         </section>`
     main.insertAdjacentHTML('beforeend', item);
 }
