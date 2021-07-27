@@ -93,11 +93,8 @@ body main .music-card__body {
 
 .audio {
   border-radius: 10px;
-  padding: 2rem;
+  padding: 1rem;
   cursor: pointer;
-}
-.audio > img {
-  padding: 2rem;
 }
 
 .active {
