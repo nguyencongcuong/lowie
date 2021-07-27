@@ -70,19 +70,16 @@ body
     // Body
     display: grid
     grid-template-columns: 100%
-    grid-template-rows: 20vh auto 20vh
-    // @media screen and ( min-width: $breakpointLg )
-    //     grid-template-columns: 1fr 2fr 1fr
-    //     grid-template-areas: ". header ." ". main ." ". footer ."        
+    grid-template-areas: "header" "main" "footer"  
+    @media screen and ( min-width: $breakpointLg )
+        grid-template-columns: 1fr 2fr 1fr
+        grid-template-areas: ". header ." ". main ." ". footer ."        
     .main-header
-        grid-column: 1 / 2
-        grid-row: 1 / 2
+        grid-area: header
     .main-body
-        grid-column: 1 / 2
-        grid-row: 2 / 3
+        grid-area: main
     .main-footer
-        grid-column: 1 / 2
-        grid-row: 3 / 4
+        grid-area: footer
 
     // Audio
     .audio
@@ -95,7 +92,7 @@ body
             grid-gap: $space1
             .audio__item
                 padding: 30%
-            @media screen and ( min-width: $breakpointSm )
+            @media screen and ( min-width: $breakpointXs )
                 grid-template-columns: 1fr 1fr  
             @media screen and ( min-width: $breakpointMd )
                 grid-template-columns: 1fr 1fr 1fr                                              
@@ -117,8 +114,11 @@ body
 body
     background: $secondaryColor
     padding: $space2
-    main
+    .main-header
+        margin-bottom: $space2
+    .main-body
         padding: $space2 0
+
 
 // COMPONENTS
 .main-header
